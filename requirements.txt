@@ -1,0 +1,12 @@
+arviz
+funsor
+jupyter
+matplotlib
+mkdocs-jupyter
+mkdocs-material
+mkdocs-minify-plugin
+mkdocs-redirects
+numpy
+numpyro
+pandas
+seaborn
