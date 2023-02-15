@@ -1,22 +1,26 @@
 # Project information
 site_name: Allam Labs.
-site_url: https://www.allam-labs.com/
-site_author: Tarek Allam Jr.
+site_url: https://allam-labs.github.io
+site_dir: "docs"
+site_author: Allam Labs.
 site_description: >-
   Create a branded static site from a set of Markdown files to host the
   documentation of your Open Source or commercial project
 # Repository
-repo_name: allam-labs.github.io
-repo_url: https://github.com/allam-labs/allam-labs.github.io
-edit_uri: ""
+# repo_name: tallamjr.github.io
+# repo_url: https://github.com/tallamjr
+# edit_uri: ""
+docs_dir: "src"
 
 # Copyright
-copyright: Copyright &copy; 2021 - 2022 Tarek Allam Jr. @ Allam Labs Ltd.
+copyright: Copyright &copy; 2021 - 2023 Allam Labs @Allam Labs Ltd.
 
 # Configuration
 theme:
   name: material
-  custom_dir: material/overrides
+  custom_dir: material/.overrides
+  features:
+    - navigation.tabs
 
   # Static files
   static_templates:
@@ -30,14 +34,14 @@ theme:
   language: en
   features:
     - content.code.annotate
-    # - content.tabs.link
+    - content.tabs.link
     # - header.autohide
-    # - navigation.expand
+    - navigation.expand
     - navigation.indexes
-    # - navigation.instant
+    - navigation.instant
     - navigation.sections
     - navigation.tabs
-    # - navigation.tabs.sticky
+    - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
     - search.highlight
@@ -58,24 +62,28 @@ theme:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
   font:
-    text: Roboto
+    # text: Space Mono
     code: Roboto Mono
-  favicon: assets/favicon.png
-  logo: assets/images/AL-logo-large.png
-  # logo: assets/images/chip-logo.png
-  # altlogo: assets/images/AL-logo-large-bw.png
+  favicon: assets/logos/allam-labs-logo.jpeg
+  logo: assets/logos/allam-labs-logo.jpeg
 
 # Plugins
 plugins:
   - search
   - redirects:
       redirect_maps:
-        changelog/insiders.md: insiders/changelog.md
-        upgrading.md: upgrade.md
+        # changelog/insiders.md: insiders/changelog.md
+        # upgrading.md: upgrade.md
         reference/variables.md: https://mkdocs-macros-plugin.readthedocs.io/
-        sponsorship.md: insiders/index.md
+        # sponsorship.md: insiders/index.md
   - minify:
       minify_html: true
+  - bibtex:
+      bib_file: "refs.bib"
+      cite_inline: true
+      csl_file: "bin/sage-harvard.csl"
+      # csl_file: "https://raw.githubusercontent.com/citation-style-language/styles/master/sage-harvard.csl"
+      # cite_style: "pandoc"
 
 # Customization
 extra:
@@ -88,12 +96,7 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/allamlabs
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/allam-labs/
-    - icon: fontawesome/brands/instagram
-      link: https://instagram.com/allam-labs
-
-extra_css:
-  - stylesheets/extra.css
+      link: https://linkedin.com/in/allamlabs
 
 # Extensions
 markdown_extensions:
@@ -136,59 +139,44 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 # Page tree
 nav:
-  - Home: index.md
-  - Getting started:
-    - Installation: getting-started.md
-    - Creating your site: creating-your-site.md
-    - Publishing your site: publishing-your-site.md
-    - Customization: customization.md
-    - License: license.md
-    - Changelog:
-      - changelog/index.md
-      - How to upgrade: upgrade.md
-  - Setup:
-    - Changing the colors: setup/changing-the-colors.md
-    - Changing the fonts: setup/changing-the-fonts.md
-    - Changing the language: setup/changing-the-language.md
-    - Changing the logo and icons: setup/changing-the-logo-and-icons.md
-    - Setting up navigation: setup/setting-up-navigation.md
-    - Setting up site search: setup/setting-up-site-search.md
-    - Setting up site analytics: setup/setting-up-site-analytics.md
-    - Setting up social cards: setup/setting-up-social-cards.md
-    - Setting up tags: setup/setting-up-tags.md
-    - Setting up versioning: setup/setting-up-versioning.md
-    - Setting up the header: setup/setting-up-the-header.md
-    - Setting up the footer: setup/setting-up-the-footer.md
-    - Adding a git repository: setup/adding-a-git-repository.md
-    - Adding a comment system: setup/adding-a-comment-system.md
-    - Extensions:
-      - setup/extensions/index.md
-      - Python Markdown: setup/extensions/python-markdown.md
-      - Python Markdown Extensions: setup/extensions/python-markdown-extensions.md
-  - Reference:
-    - Abbreviations: reference/abbreviations.md
-    - Admonitions: reference/admonitions.md
-    - Buttons: reference/buttons.md
-    - Code blocks: reference/code-blocks.md
-    - Content tabs: reference/content-tabs.md
-    - Data tables: reference/data-tables.md
-    - Diagrams: reference/diagrams.md
-    - Footnotes: reference/footnotes.md
-    - Formatting: reference/formatting.md
-    - Icons + Emojis: reference/icons-emojis.md
-    - Images: reference/images.md
-    - Lists: reference/lists.md
-    - MathJax: reference/mathjax.md
-    - Meta tags: reference/meta-tags.md
-  - Insiders:
-    - insiders/index.md
-    - Getting started:
-      - Installation: insiders/getting-started.md
-      - Changelog: insiders/changelog.md
+  - About Me: index.md
+  - Research:
+    - research/index.md
+  - Projects:
+    - projects/index.md
   - Blog:
-    - blog/index.md
-    - 2021:
-      - blog/2021/excluding-content-from-search.md
-      - blog/2021/search-better-faster-smaller.md
+    - blog/latest-posts.md
+    # - 2023:
+    #   - blog/2023/einstein-blunder.md
+    #   - blog/2022/big-telescope-tinyml.md
+    # - 2021:
+      # - blog/2021/xception.md
+      # - blog/2021/bap-numpyro.md
+      # - blog/2021/paying-attention.md
+      # - blog/2021/time-series-transformer.md
+    - 2020:
+      - blog/2020/pyspark-by-example.md
+      - blog/2020/scala-python-jvm.md
+      - blog/2020/public-private-repos.md
+      - blog/2020/sbt-native-packaging.md
+      - blog/2020/awesome-blogs.md
+      # - blog/2020/datum-2005.md
+      # - blog/2020/deluge-of-data.md
+      # - blog/2020/rabbit-hole.md
+    - 2017:
+      - blog/2017/bufdo.md
+    - 2016:
+      - blog/2016/matlab-r-julia-notebooks.md
+    # - templates:
+    #   - blog/templates/template.md

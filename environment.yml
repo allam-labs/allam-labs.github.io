@@ -1,11 +1,12 @@
 
-name: allam-labs.com
+name: web
 channels:
   - conda-forge
   - defaults
 dependencies:
   - pip
-  - python=3.8
+  - python=3.11
+  - pandoc
   - pip:
     - black
     - neovim
